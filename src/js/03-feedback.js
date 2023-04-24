@@ -1,8 +1,8 @@
 import throttle from 'lodash.throttle';
 
 const form = document.querySelector('.feedback-form')
-const emailInput = form.querySelector('input[name="email"]');
-const messageInput = form.querySelector('textarea[name="message"]');
+const emailInput = document.querySelector('input[name="email"]');
+const messageInput = document.querySelector('textarea[name="message"]');
 
 const saveState = () => {
     const state = {
@@ -38,5 +38,5 @@ const handleSubmit = (event) => {
 };
 
 form.addEventListener('input', throttle(saveState, 500));
-form.addEventListener('load', loadState);
+document.addEventListener('DOMContentLoaded', loadState);
 form.addEventListener('submit', handleSubmit);
